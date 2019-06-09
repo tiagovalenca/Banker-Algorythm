@@ -168,6 +168,7 @@ int main(int argc, char const *argv[])
 	free(need);
     free(work);
     free(finish);
+    printf("Programa finalizado corretamente!");
     return 0;
 }
 
