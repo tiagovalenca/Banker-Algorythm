@@ -348,9 +348,11 @@ int runThread(int idCliente, int nCiclo){
             e ao mesmo tempo vai chamar a thread novamente quando ela puder rodar sem
             causar deadlock
         */
-        while(safety() != 1)
+        while(safety() != 1){
             pthread_cond_wait(&cond, &trava);
-            
+            printf("Tentando novamente com o cliente %d\n", idCliente);
+            sleep(1); // sleep pro print sair certinho
+        }    
         // retira os recursos do pool global           
         for(int k = 0; k < recursoInicial; k++)
             recursos[k] -= need[idCliente][k];    
