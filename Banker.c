@@ -298,23 +298,23 @@ int safety()
 }
 
 // Função que vai gerar um numero Randomico entre o min e o max
-int random_number(int min_num, int max_num)
+int random_number(int min, int max)
 {
-    int result = 0, low_num = 0, hi_num = 0;
+    int result = 0, low = 0, high = 0;
     
-    if(min_num == 0 && max_num == 0) return 0;
+    if(min == 0 && max == 0) return 0;
 
-    if (min_num < max_num)
+    if (min < max)
     {
-        low_num = min_num;
-        hi_num = max_num + 1; // incluir max_num no output
+        low = min;
+        high = max + 1; // incluir max no output
     } else {
-        low_num = max_num + 1; // incluir max_num no output
-        hi_num = min_num;
+        low = max + 1; // incluir max no output
+        high = min;
     }
 
     srand(time(NULL));
-    result = (rand() % (hi_num - low_num)) + low_num;
+    result = (rand() % (high - low)) + low;
     return result;
 }
 
